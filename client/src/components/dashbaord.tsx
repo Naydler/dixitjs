@@ -1,6 +1,6 @@
 'use client';
 
-import { ClientEventType } from "$/event_types";
+import { ClientEventType } from "dixitjs-core";
 import useWebSocket from "$/hooks/useWebSockets";
 
 export function Dashboard() {

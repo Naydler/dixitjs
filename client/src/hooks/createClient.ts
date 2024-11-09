@@ -1,15 +1,12 @@
 export type player = {
     name: string;
-    score: number;
-    isHost: boolean;
     };
 
 
 
 export function createClient(name: string): player {
+    // This is a stub, you can implement your own logic here
     return {
         name: name,
-        score: 0,
-        isHost: false,
     }
 }

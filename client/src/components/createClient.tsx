@@ -26,7 +26,7 @@ export function InputWithButton() {
                     value={name}
                     onChange={(e) => {
                         setName(e.target.value)
-                        if (error) setError(false) // Clear error on typing
+                        if (error) setError(false)
                     }}
                 />
                 <Button type="submit" onClick={() => handleClick(name)}>Crear</Button>
