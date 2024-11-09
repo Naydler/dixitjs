@@ -1,6 +1,7 @@
 import { IEvent } from "./interface";
 
 export enum ClientEventType {
+  CreatePlayer = 'create_player',
   CreateRoom = 'create_room',
   JoinRoom = 'join_room',
 }
@@ -19,4 +20,11 @@ export interface JoinRoomEvent extends IEvent {
   }
 }
 
-export type ClientEvent = CreateRoomEvent | JoinRoomEvent;
+export interface CreatePlayerEvent extends IEvent {
+  type: ClientEventType.CreatePlayer;
+  data: {
+    playerName: string;
+  }
+}
+
+export type ClientEvent = CreateRoomEvent | JoinRoomEvent | CreatePlayerEvent;
