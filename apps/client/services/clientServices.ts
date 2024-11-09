@@ -1,6 +1,10 @@
-export type Player = {
-    name: string;
-    };
+export class Player {
+    readonly name: string;
+
+    constructor({ name }: { name: string }) {
+        this.name = name;
+    }
+};
 
 
 
