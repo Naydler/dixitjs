@@ -40,4 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 # source images
-src/app/assets/images
+public/images
