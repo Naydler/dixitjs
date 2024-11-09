@@ -1,15 +1,18 @@
+import { ClientEvent, ServerEvent } from '$/event_types';
 import { useEffect, useState } from 'react';
 
 const useWebSocket = (url: string) => {
-  const [messages, setMessages] = useState<any[]>([]);
+  const [events, setEvents] = useState<ServerEvent[]>([]);
   const [ws, setWs] = useState<WebSocket>();
 
   useEffect(() => {
     const socket = new WebSocket(url);
     setWs(socket);
 
-    socket.onmessage = (event) => {
-      setMessages((prevMessages) => [...prevMessages, event.data]);
+    socket.onmessage = (rawEvent) => {
+      const event = JSON.parse(rawEvent.data) as ServerEvent;
+
+      setEvents((prevMessages) => [...prevMessages, event]);
     };
 
     return () => {
@@ -17,13 +20,13 @@ const useWebSocket = (url: string) => {
     };
   }, [url]);
 
-  const sendMessage = (message: any) => {
+  const sendEvent = (event: ClientEvent) => {
     if (ws) {
-      ws.send(message);
+      ws.send(JSON.stringify(event));
     }
   };
 
-  return { messages, sendMessage };
+  return { events, sendEvent };
 };
 
 export default useWebSocket;

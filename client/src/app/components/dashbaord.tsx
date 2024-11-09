@@ -1,21 +1,25 @@
 'use client';
 
+import { ClientEventType } from "$/event_types";
 import useWebSocket from "$/hooks/useWebSockets";
 
 export function Dashboard() {
-  const { messages, sendMessage } = useWebSocket('ws://localhost:8080');
+  const { events, sendEvent } = useWebSocket('ws://localhost:8080');
 
   return (
     <div className="flex flex-col gap-8 p-8">
-      Messages ({messages.length}):
+      Messages ({events.length}):
       <div className="flex flex-col gap-2">
-        {messages.map((message, index) => (
-          <div key={index}>{message}</div>
+        {events.map((event, index) => (
+          <div key={index}>{JSON.stringify(event)}</div>
         ))}
       </div>
 
-      <button onClick={() => sendMessage('hello world')}>
-        Send message
+      <button onClick={() => sendEvent({
+        type: ClientEventType.CreateRoom,
+        data: { roomName: 'My room' }
+      })}>
+        Create room
       </button>
     </div>
   )
