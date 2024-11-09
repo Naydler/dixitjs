@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dixitjs-core": "workspace:^",
+    "typescript-config": "workspace:^",
     "ws": "^8.18.0"
   },
   "devDependencies": {

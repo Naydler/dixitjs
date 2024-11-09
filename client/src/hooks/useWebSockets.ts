@@ -1,4 +1,4 @@
-import { ClientEvent, ServerEvent } from '$/event_types';
+import { ClientEvent, ServerEvent } from "dixitjs-core";
 import { useEffect, useState } from 'react';
 
 const useWebSocket = (url: string) => {

@@ -1,7 +1,4 @@
-type IEvent = {
-  type: string;
-  data: unknown;
-}
+import { IEvent } from "./interface";
 
 export enum ClientEventType {
   CreateRoom = 'create_room',
@@ -23,12 +20,3 @@ export interface JoinRoomEvent extends IEvent {
 }
 
 export type ClientEvent = CreateRoomEvent | JoinRoomEvent;
-
-export interface ErrorEvent extends IEvent {
-  type: 'error';
-  data: {
-    message: string;
-  }
-}
-
-export type ServerEvent = ErrorEvent;

@@ -1,5 +1,5 @@
 import WebSocket, { WebSocketServer } from 'ws';
-import { ClientEvent, ClientEventType, ServerEvent, ServerEventType } from './event_types';
+import { ClientEvent, ServerEvent, ServerEventType } from 'dixitjs-core';
 
 const port = 8080;
 const wss = new WebSocketServer({ port });
