@@ -1,0 +1,17 @@
+{
+  "extends": "next/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "$/*": ["./src/*"],
+      "core": ["../core/src"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "references": [{ "path": "../core" }]
+}
