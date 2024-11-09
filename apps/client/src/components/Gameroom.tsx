@@ -1,20 +1,17 @@
-'use client'
-import { Button } from "$/components/ui/button"
-import { useState } from "react"
-import { createRoom, joinRoom } from "../../services/roomServices"
+import { Button } from "./ui/button";
+
+export function createRoom() {
+    console.log("create room")
 
 
+}
 
-export function PlayMenu() {
+export function joinRoom() {
+    console.log("join room")
+}
 
-    const handleJoin = () => {
-        joinRoom()
-    }
-    const handleCreate = () => 
-    {
-        createRoom()
-    }
-    
+export function gameRoom() {
+
     return (
         <div className="flex w-full max-w-sm flex-col space-y-4">
             <Button type="submit" className="w-full py-4" onClick={() => handleCreate()}>Crear sala</Button>

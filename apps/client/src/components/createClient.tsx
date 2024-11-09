@@ -1,8 +1,8 @@
 'use client'
+import React, { useState } from "react"
 import { Input } from "$/components/ui/input"
 import { Button } from "$/components/ui/button"
-import { useState } from "react"
-import { createClient } from "$/hooks/createClient"
+import { createClient } from "../../services/clientServices"
 
 export function InputWithButton() {
     const [name, setName] = useState("")
