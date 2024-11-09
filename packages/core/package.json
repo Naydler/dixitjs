@@ -1,14 +1,15 @@
 {
-  "name": "core",
+  "name": "dixitjs-core",
   "version": "1.0.0",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": ["dist"],
+  "type": "module",
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b --force",
+    "dev": "tsc -b --force -w"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.6.3"
   }
 }

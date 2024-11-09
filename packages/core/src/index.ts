@@ -1,1 +1,1 @@
-export * from './events/index'
+export * from './events/index.js'

@@ -1,5 +1,5 @@
 {
-  "extends": "next/tsconfig.json",
+  "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "plugins": [
@@ -8,10 +8,24 @@
       }
     ],
     "paths": {
-      "$/*": ["./src/*"],
-      "core": ["../core/src"]
-    }
+      "$/*": [
+        "./src/*"
+      ],
+      "core": [
+        "../core/src"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "references": [{ "path": "../core" }]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "references": [
+    {
+      "path": "../../packages/core"
+    }
+  ]
 }

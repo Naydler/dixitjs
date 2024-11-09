@@ -1,5 +1,5 @@
 import WebSocket, { WebSocketServer } from 'ws';
-import { ServerEvent, ServerEventType } from 'dixitjs-core';
+import { ClientEvent, ServerEvent, ServerEventType } from 'dixitjs-core';
 
 const port = 8080;
 const wss = new WebSocketServer({ port });
@@ -12,9 +12,9 @@ wss.on('connection', (ws: WebSocket) => {
   }
 
   ws.on('message', (rawEvent: string) => {
-    // const event = JSON.parse(rawEvent) as ClientEvent;
+    const event = JSON.parse(rawEvent) as ClientEvent;
 
-    sendEvent({ type: ServerEventType.Error, data: { message: 'No.' } });
+    sendEvent({ type: ServerEventType.Error, data: { message: JSON.stringify(event) } });
   });
 
   ws.on('close', () => {
